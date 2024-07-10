@@ -1,4 +1,3 @@
-import axios from "axios";
 import {ProductForm} from "@/components/ProductForm";
 
 function NewPage() {
@@ -11,12 +10,29 @@ function NewPage() {
 
 export default NewPage;
 
-export const getServerSideProps = async (context) => {
-    const res = await axios.get("http://localhost:3000/api/products");
+// export const getServerSideProps = async (context) => {
+//     const res = await axios.get("http://localhost:3000/api/products");
+//
+//     return {
+//         props: {
+//             products: res.data,
+//         },
+//     };
+// };
+
+async function getServerSideProps() {
+    const res = await fetch('"http://localhost:3000/api/products')
+    // The return value is *not* serialized
+    // You can return Date, Map, Set, etc.
+
+    if (!res.ok) {
+        // This will activate the closest `error.js` Error Boundary
+        throw new Error('Failed to fetch data')
+    }
 
     return {
         props: {
             products: res.data,
         },
     };
-};
+}
