@@ -1,0 +1,13 @@
+services:
+  mysqldb:
+    image: mysql:8.3.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=S3cret
+      - MYSQL_DATABASE=productDB
+    ports:
+      - 3307:3306
+    # init sql script
+    volumes:
+      - ./database/db.sql:/docker-entrypoint-initdb.d/init.sql
+    command: mysqld --default-authentication-plugin=mysql_native_password
+
