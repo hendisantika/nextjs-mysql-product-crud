@@ -202,6 +202,7 @@ jobs:
           CONTAINER_NAME: product-management
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ECR_REGISTRY: ${{ secrets.AWS_ECR_REGISTRY }}
+          APP_PORT: ${{ secrets.APP_PORT }}
 
         run: |
           echo AWS_REGION=$AWS_REGION >> .env
@@ -209,6 +210,7 @@ jobs:
           echo CONTAINER_NAME=$CONTAINER_NAME >> .env
           echo ECR_REPOSITORY=$ECR_REPOSITORY >> .env
           echo IMAGE_TAG=$IMAGE_TAG >> .env
+          echo $APP_PORT=$APP_PORT >> .env
 
       - name: Copy all environment variables
         uses: appleboy/scp-action@v0.1.7
@@ -231,6 +233,7 @@ jobs:
           CONTAINER_NAME: product-management
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ECR_REGISTRY: ${{ secrets.AWS_ECR_REGISTRY }}
+          APP_PORT: ${{ secrets.APP_PORT }}
 
         run: |
           set -e
