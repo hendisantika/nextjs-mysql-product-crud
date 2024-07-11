@@ -34,7 +34,7 @@ COPY --from=base /app/public ./public
 COPY --from=base /app/package.json ./package.json
 
 # Ekspos port yang akan digunakan oleh aplikasi
-EXPOSE 3000
+EXPOSE 3002
 
 # Jalankan perintah untuk memulai aplikasi
 #CMD ["pnpm", "start"]
