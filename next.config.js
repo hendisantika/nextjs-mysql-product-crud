@@ -5,7 +5,7 @@
 
 
 module.exports = {
-    // output: 'standalone',
+    output: 'standalone',
     reactStrictMode: true,
     async redirects() {
         return [
