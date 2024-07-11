@@ -210,7 +210,7 @@ jobs:
           echo CONTAINER_NAME=$CONTAINER_NAME >> .env
           echo ECR_REPOSITORY=$ECR_REPOSITORY >> .env
           echo IMAGE_TAG=$IMAGE_TAG >> .env
-          echo $APP_PORT=$APP_PORT >> .env
+          echo APP_PORT=$APP_PORT >> .env
 
       - name: Copy all environment variables
         uses: appleboy/scp-action@v0.1.7
