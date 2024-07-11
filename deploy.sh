@@ -17,7 +17,7 @@ if [ "$(docker ps -qa -f name=$CONTAINER_NAME)" ]; then
     fi
 fi
 
-docker run -d --rm -p $APP_PORT:$APP_PORT --env-file .env --name $CONTAINER_NAME  $AWS_ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+docker run -d --rm -p $APP_PORT:3000 --env-file .env --name $CONTAINER_NAME  $AWS_ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 exit
 ENDSSH
 
