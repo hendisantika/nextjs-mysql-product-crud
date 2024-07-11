@@ -33,9 +33,15 @@ COPY --from=base /app/.next ./.next
 COPY --from=base /app/public ./public
 COPY --from=base /app/package.json ./package.json
 
+COPY --from=base /app/public ./public
+COPY --from=base /app/.next/standalone ./
+COPY --from=base /app/.next/static ./.next/static
+
 # Ekspos port yang akan digunakan oleh aplikasi
 EXPOSE 3002
+ENV HOST=0.0.0.0 NODE_ENV=production PORT=3002
 
 # Jalankan perintah untuk memulai aplikasi
 #CMD ["pnpm", "start"]
+#CMD ["dumb-init", "node", "server.js"]
 ENTRYPOINT ["node", ".next/standalone/server.js"]
