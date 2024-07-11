@@ -44,4 +44,5 @@ ENV HOST=0.0.0.0 NODE_ENV=production PORT=3002
 # Jalankan perintah untuk memulai aplikasi
 #CMD ["pnpm", "start"]
 #CMD ["dumb-init", "node", "server.js"]
-ENTRYPOINT ["node", ".next/standalone/server.js"]
+#ENTRYPOINT ["node", ".next/standalone/server.js"]
+ENTRYPOINT ["node", "server.js"]
