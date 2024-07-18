@@ -32,9 +32,9 @@
 // Dinyatakan sebagai Client Component
 "use client";
 
-import { ProductCard } from "@/components/ProductCard";
+import {ProductCard} from "@/components/ProductCard";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 
 // Fungsi ini akan dimodif di bawah
 // async function loadProduct() {
@@ -50,7 +50,8 @@ async function ProductsPage() {
 
 	useEffect(() => {
 		async function loadProduct() {
-			const { data } = await axios.get("http://localhost:3000/api/products");
+			// const { data } = await axios.get("http://localhost:3000/api/products");
+			const {data} = await axios.get(process.env.NUXT_HOST + "/api/products");
 			console.log(data);
 
 			setProducts(data);

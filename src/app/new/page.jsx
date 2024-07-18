@@ -21,7 +21,8 @@ export default NewPage;
 // };
 
 async function getServerSideProps() {
-    const res = await fetch('"http://localhost:3000/api/products')
+    // const res = await fetch('"http://localhost:3000/api/products')
+    const res = await fetch(process.env.NUXT_HOST + '/api/products')
     // The return value is *not* serialized
     // You can return Date, Map, Set, etc.
 

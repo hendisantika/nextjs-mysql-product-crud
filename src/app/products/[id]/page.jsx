@@ -6,7 +6,8 @@ import toast from "react-hot-toast";
 
 async function loadProduct(productId) {
     const {data} = await axios.get(
-        "http://localhost:3000/api/products/" + productId
+        // "http://localhost:3000/api/products/" + productId
+        process.env.NUXT_HOST + "/api/products/" + productId
     );
     return data;
 }
