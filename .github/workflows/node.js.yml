@@ -204,6 +204,11 @@ jobs:
           AWS_ECR_REGISTRY: ${{ secrets.AWS_ECR_REGISTRY }}
           APP_PORT: ${{ secrets.APP_PORT }}
 
+          MYSQL_HOST: ${{ secrets.MYSQL_HOST }}
+          MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
+          MYSQL_USER: ${{ secrets.MYSQL_USER }}
+          MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
+
         run: |
           echo AWS_REGION=$AWS_REGION >> .env
           echo AWS_ECR_REGISTRY=$AWS_ECR_REGISTRY >> .env
@@ -211,6 +216,10 @@ jobs:
           echo ECR_REPOSITORY=$ECR_REPOSITORY >> .env
           echo IMAGE_TAG=$IMAGE_TAG >> .env
           echo APP_PORT=$APP_PORT >> .env
+          echo MYSQL_HOST=$MYSQL_HOST >> .env
+          echo MYSQL_DATABASE=$MYSQL_DATABASE >> .env
+          echo MYSQL_USER=$MYSQL_USER >> .env
+          echo MYSQL_PASSWORD=$MYSQL_PASSWORD >> .env
 
       - name: Copy all environment variables
         uses: appleboy/scp-action@v0.1.7
